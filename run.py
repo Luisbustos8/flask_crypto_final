@@ -9,22 +9,24 @@ def index():
 
     data_base = "./data/movimientos.db"
 
-    try:   
-        conn = sqlite3.connect(data_base)
-        cur = conn.cursor()
+ 
+    conn = sqlite3.connect("data_base")
+    cur = conn.cursor()
 
-        query = "SELECT * FROM movimientos;"
-        movimientos = cur.execute(query).fetchall()
-        print(movimientos)
+    query = 'CREATE TABLE IF NOT EXISTS "movimientos"("id" INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, "date" TEXT, "time" TEXT, "from_currency" INTEGER, "from_quantity" REAL, "to_currency" INTEGER, "to_quantity" REAL, "unit_price" REAL, FOREIGN KEY("from_currency") REFERENCES "cryptos"("symbol"), FOREIGN KEY("to_currency") REFERENCES "cryptos"("symbol"));'
+    cur.execute(query)
 
-        if movimientos[0] == None:
-            return "No hay movimientos"
-        else:
-            conn.close()
-            return render_template("index.html", movimientos=movimientos)
+    todomovimiento = ("SELECT * FROM movimientos")
+    movimiento = cur.execute(todomovimiento).fetchall()
+
+    if len (movimiento) == 0:
+        return render_template("indexnomove.html")
+    else:
+        query = ("SELECT * FROM movimientos")
+        movimientos = cur.execute(movimiento).fetchall()
+        conn.close()
+        return render_template("index.html", movimientos=movimientos)
             
-    except:
-        return render_template("index.html")
    
 
 

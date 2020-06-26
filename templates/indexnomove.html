@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block titulo%}Movimientos{% endblock %}
+
+{% block contenido %}
+
+   <center><h1>Movimientos</h1></center> 
+    <table class="u-full-width">
+        <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>From</th>
+            <th>Inversión</th>
+            <th>To</th>
+            <th>Cantidad Cryto</th>
+            <th>Precio Unitario</th>
+        </tr>  
+    </table>
+    <center><h3>  SIN MOVIMIENTOS </h3></center>
+    <a class= "button" href="/status"> Status </a>
+    <a class="button"  href="/purchase"> + </a>
+{% endblock %}
