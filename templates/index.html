@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo%}Movimientos{% endblock %}
+
+{% block contenido %}
+
+    <h1>Movimientos</h1>
+    <table class="u-full-width">
+        <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>From</th>
+            <th>Inversión</th>
+            <th>To</th>
+            <th>Cantidad Cryto</th>
+            <th>Precio Unitario</th>
+        </tr>
+        {% for movimiento in movimientos %}
+         <tr>
+            <td> {{movimiento[1]}} </td>
+            <td> {{movimiento[2]}} </td>
+            <td> {{movimiento[3]}} </td>
+            <td> {{movimiento[4]}} </td>
+            <td> {{movimiento[5]}} </td>
+            <td> {{movimiento[6]}} </td>
+            <td> {{movimiento[7]}} </td>
+         </tr>
+        {% endfor %}
+    </table>
+    <a class= "button" href="/status"> Status </a>
+    <a class="button"  href="/purchase"> + </a>
+{% endblock %}

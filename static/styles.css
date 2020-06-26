@@ -1,0 +1,14 @@
+header, footer {
+    padding: 10px;
+    background-color: #BDD0D0;
+    color: white;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
