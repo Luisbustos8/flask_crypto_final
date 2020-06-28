@@ -11,4 +11,13 @@ header {
 footer {
     margin-top: 20px;
 }
-
+.output {
+    height: 3px;
+    width: 50%;
+    background-color: #d1d1d1;
+}
+.boton_purchase {
+    Display: Flex;
+    Justify-content: flex-end;
+    Align-items: center;
+}

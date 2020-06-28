@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+     {% block titulo %} Ventas por región {% endblock %}
+     
+     
+     {% block contenido%}
+          <center><h1>Compra de Criptos</h1></center>
+     
+          <form action="/purchase" method="post">
+            <form>
+                <div class="row">
+                  <div class="six columns">
+                    <label for="from_currency">From:</label>
+                    <select class="u-full-width" id="from_currency">
+                    <option value="EUR">EUR</option>
+                    <option value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                    <option value="XRP">XRP</option>
+                    <option value="LTC">LTC</option>
+                    <option value="BCH">BCH</option>
+                    <option value="BNB">BNB</option>
+                    <option value="USDT">USDT</option>
+                    <option value="EOS">EOS</option>
+                    <option value="BSV">BSV</option>
+                    <option value="XLM">XLM</option>
+                    <option value="ADA">ADA</option>
+                    <option value="TRX">TRX</option>
+                  </select>
+                </div>
+                  <div class="six columns">
+                    <label for="to_currency">To:</label>
+                    <select class="u-full-width" id="to_currency">
+                        <option value="EUR">EUR</option>
+                        <option value="BTC">BTC</option>
+                        <option value="ETH">ETH</option>
+                        <option value="XRP">XRP</option>
+                        <option value="LTC">LTC</option>
+                        <option value="BCH">BCH</option>
+                        <option value="BNB">BNB</option>
+                        <option value="USDT">USDT</option>
+                        <option value="EOS">EOS</option>
+                        <option value="BSV">BSV</option>
+                        <option value="XLM">XLM</option>
+                        <option value="ADA">ADA</option>
+                        <option value="TRX">TRX</option>
+                    </select>
+                  </div>
+                </div>
+
+            <form>
+                <div class="row">
+                    <div class="five columns">
+                        <label for="form_quantity">Q: </label>
+                        <input class="u-full-width" type="number" id="form_quantity" step="0.01">
+                    </div>
+                    <div class = "two columns">
+                        <label for=".">.</label>
+                        <button type="button" onclick="convertCurrency()"> <i class="fas fa-calculator"></i> </button>
+                    </div>
+                    <div class="six colums">
+                        <label for="to_quantity">Q:</label>
+                        <output type= "range" id="to_quantity" ></output>
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div class="row" >
+                    <div class= "one column">
+                        <label for="Precio_unitario">P.U:</label>
+                        <output type="range" id="precio_unitario" ></output>
+                    </div>
+                </div>
+            </form>
+            <div class= "boton_purchase">
+                <button><i class="fas fa-times"></i></button>   
+                <button><i class="fas fa-check"></i></i></button> 
+            </div>       
+          </form>
+          {% endblock %}
