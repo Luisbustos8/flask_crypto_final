@@ -41,9 +41,11 @@ def purchase():
 def calculate():
     API = "1dbb05ab-4813-4123-8201-8cd33cad7d7e"
     params = request.args
-    url_convert = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount={}&symbol={}&convert={}&CMC_PRO_API_KEY={}".format(params.get("form_quantity"), params.get("from_currency"), params.get("to_currency"), API)
+    url_convert = "https://sandbox-api.coinmarketcap.com/v1/tools/price-conversion?amount={}&symbol={}&convert={}&CMC_PRO_API_KEY={}".format(params.get("form_quantity"), params.get("from_currency"), params.get("to_currency"), API)
     req = requests.get(url_convert)
-    return jsonify(data=req.json)
+    if req.status_code == 401:
+        return jsonify()
+    return req.text
 
     
 

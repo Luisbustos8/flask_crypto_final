@@ -4,7 +4,7 @@ import json
 
 
 base_url = "https://sandbox-api.coinmarketcap.com/v1/"
-url_conversion = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount=1&symbol={}&convert=<{}>&CMC_PRO_API_KEY=<{}>".format("from_currency", "to_currency", "API")
+url_conversion = "{}/tools/price-conversion?amount={}&symbol={}&convert=<{}>&CMC_PRO_API_KEY=<{}>".format(base_url, "form_quantity", "from_currency", "to_currency", "API")
 parameters = {
     "start": "1",
     "limit": "",

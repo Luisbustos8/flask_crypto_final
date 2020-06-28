@@ -19,7 +19,7 @@
                 "run",
                 "--no-debugger",
                 "--no-reload",
-                "--port 8001"
+                // "--port 8001"
             ],
             "jinja": true
         }
