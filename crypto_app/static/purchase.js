@@ -18,5 +18,3 @@ function convertCurrency() {
   });
     
 }
-
-//url_conversion = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount={}&symbol={}&convert={}&CMC_PRO_API_KEY={}".format("form_quantity" "from_currency", "to_currency", API)
