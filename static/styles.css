@@ -21,3 +21,9 @@ footer {
     Justify-content: flex-end;
     Align-items: center;
 }
+
+.output-value {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+}

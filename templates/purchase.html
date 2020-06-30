@@ -6,25 +6,24 @@
      {% block contenido%}
           <center><h1>Compra de Criptos</h1></center>
      
-          <form action="/purchase" method="post">
-            <form>
+          <form name="purchase_form" action="/" method="post">
                 <div class="row">
                   <div class="six columns">
                     <label for="from_currency">From:</label>
                     <select name="from_currency" class="u-full-width" id="from_currency">
-                    <option value="EUR">EUR</option>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                    <option value="XRP">XRP</option>
-                    <option value="LTC">LTC</option>
-                    <option value="BCH">BCH</option>
-                    <option value="BNB">BNB</option>
-                    <option value="USDT">USDT</option>
-                    <option value="EOS">EOS</option>
-                    <option value="BSV">BSV</option>
-                    <option value="XLM">XLM</option>
-                    <option value="ADA">ADA</option>
-                    <option value="TRX">TRX</option>
+                        <option value="EUR">EUR</option>
+                        <option value="BTC">BTC</option>
+                        <option value="ETH">ETH</option>
+                        <option value="XRP">XRP</option>
+                        <option value="LTC">LTC</option>
+                        <option value="BCH">BCH</option>
+                        <option value="BNB">BNB</option>
+                        <option value="USDT">USDT</option>
+                        <option value="EOS">EOS</option>
+                        <option value="BSV">BSV</option>
+                        <option value="XLM">XLM</option>
+                        <option value="ADA">ADA</option>
+                        <option value="TRX">TRX</option>
                   </select>
                 </div>
                   <div class="six columns">
@@ -47,7 +46,7 @@
                   </div>
                 </div>
 
-            <form>
+            <div>
                 <div class="row">
                     <div class="five columns">
                         <label for="form_quantity">Q: </label>
@@ -59,21 +58,21 @@
                     </div>
                     <div class="six colums">
                         <label for="to_quantity">Q:</label>
-                        <output type= "range" id="to_quantity" >0</output>
+                        <input name="to_quantity" class="output-value" readonly type= "text" id="to_quantity" value="0">
                     </div>
                 </div>
-            </form>
-            <form>
+            </div>
+            <div>
                 <div class="row" >
                     <div class= "one column">
-                        <label for="Precio_unitario">P.U:</label>
-                        <output type="range" id="precio_unitario" >0</output>
+                        <label for="unit_price">P.U:</label>
+                        <input name="unit_price" class="output-value" readonly type="text" id="precio_unitario" value="0">
                     </div>
                 </div>
-            </form>
+            </div>
             <div class= "boton_purchase">
-                <button><i class="fas fa-times"></i></button>   
-                <button><i class="fas fa-check"></i></i></button> 
+                <button href="/"><i class="fas fa-times"></i></button>   
+                <button type="submit"><i class="fas fa-check"></i></i></button> 
             </div>       
           </form>
           {% endblock %}
