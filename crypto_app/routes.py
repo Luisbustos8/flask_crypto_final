@@ -3,7 +3,6 @@ import requests
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from datetime import datetime
 import sqlite3
-import _config
 from crypto_app.forms import PurchaseForm
 from config import *
 data_base = data_base
@@ -26,6 +25,7 @@ def index():
     else:
         query = ("SELECT * FROM movimientos")
         movimientos = cur.execute(query).fetchall()
+        conn.commit()
         conn.close()
         return render_template("index.html", movimientos=movimientos)
 
@@ -45,11 +45,10 @@ def purchase():
 
         conn = sqlite3.connect("data_base")
         cur = conn.cursor()
-        query = "INSERT INTO MOVIMIENTOS (date, time, from_currency, form_quantity, to_currency, to_quantity, unit_price) VALUES (?,?,?,?,?,?,?)";
+        query = "INSERT INTO MOVIMIENTOS (date, time, from_currency, form_quantity, to_currency, to_quantity, unit_price) VALUES (?,?,?,?,?,?,?);"
         data = (str(now.date()), time, request.values.get("from_currency"), request.values.get("form_quantity"), request.values.get("to_currency"), request.values.get("unit_price"))
 
         cur.execute(query, data)
-        conn.commit()
         con.close()
 
         return redirect(url_for('index'))
@@ -68,4 +67,13 @@ def calculate():
     
 @app.route("/status")
 def status():
-    return render_template("status.html")
+
+    conn = sqlite3.connect("data_base")
+    cur = conn.cursor()
+
+    query = "SELECT sum(form_quantity) FROM movimientos WHERE (from_currency) = EUR"
+    inversion = cur.execute(query).fetchall()
+    
+    
+            
+    return render_template("status.html", inversion= inversion )
